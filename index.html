@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ship Log</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="masthead">
+        <div>
+          <p class="eyebrow">Captain’s log, work edition</p>
+          <h1>Ship Log</h1>
+        </div>
+        <p class="masthead-date" id="today-label"></p>
+      </header>
+
+      <main class="layout">
+        <section class="composer card" aria-labelledby="composer-heading">
+          <h2 id="composer-heading">What did you ship?</h2>
+          <form id="entry-form">
+            <label class="sr-only" for="title">Title</label>
+            <input
+              id="title"
+              name="title"
+              type="text"
+              required
+              maxlength="160"
+              placeholder="Shipped the weekly recap view"
+              autocomplete="off"
+            />
+            <label class="sr-only" for="body">Notes</label>
+            <textarea
+              id="body"
+              name="body"
+              rows="3"
+              maxlength="2000"
+              placeholder="Optional notes — why it mattered, who it unblocked, what’s next."
+            ></textarea>
+            <div class="composer-row">
+              <div>
+                <label for="tags">Tags</label>
+                <input
+                  id="tags"
+                  name="tags"
+                  type="text"
+                  placeholder="frontend, client-x"
+                  autocomplete="off"
+                />
+              </div>
+              <div>
+                <label for="date">Date</label>
+                <input id="date" name="date" type="date" required />
+              </div>
+            </div>
+            <div class="composer-actions">
+              <p class="hint">Enter saves. Shift+Enter adds a newline in notes.</p>
+              <button type="submit" id="save-btn">Log it</button>
+            </div>
+          </form>
+        </section>
+
+        <aside class="recap card" aria-labelledby="recap-heading">
+          <div class="recap-head">
+            <h2 id="recap-heading">This week</h2>
+            <button type="button" id="copy-recap" class="ghost">Copy recap</button>
+          </div>
+          <p class="recap-range" id="recap-range"></p>
+          <p class="recap-stats" id="recap-stats"></p>
+          <ul class="recap-list" id="recap-list"></ul>
+          <p class="recap-empty" id="recap-empty">Nothing logged this week yet.</p>
+        </aside>
+
+        <section class="feed" aria-labelledby="feed-heading">
+          <div class="feed-head">
+            <h2 id="feed-heading">Log</h2>
+            <div class="filters">
+              <label class="sr-only" for="search">Search</label>
+              <input id="search" type="search" placeholder="Search titles, notes, tags" />
+              <div class="pills" role="group" aria-label="Time range">
+                <button type="button" class="pill is-active" data-range="week">Week</button>
+                <button type="button" class="pill" data-range="today">Today</button>
+                <button type="button" class="pill" data-range="all">All</button>
+              </div>
+            </div>
+          </div>
+          <div id="feed"></div>
+        </section>
+      </main>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
