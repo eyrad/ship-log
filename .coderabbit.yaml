@@ -1,0 +1,7 @@
+reviews:
+  profile: "chill"
+  path_instructions:
+    - path: "app.js"
+      instructions: "Check for clean DOM manipulation and avoid console logs."
+    - path: "styles.css"
+      instructions: "Check for responsive layout issues and color contrast."
